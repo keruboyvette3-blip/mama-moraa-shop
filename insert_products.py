@@ -1,17 +1,27 @@
 import sqlite3
 
-conn = sqlite3.connect("shop.db")
+# Connect to the database
+conn = sqlite3.connect('shop.db')
 cursor = conn.cursor()
 
-# Insert sample products
+# List of products: (name, quantity, price)
 products = [
-    ("Bread 600g", 100),
-    ("Bread 400g", 65)
+    ("Sugar", 10, 120),
+    ("Flour", 20, 80),
+    ("Rice", 15, 150),
+    ("Cooking Oil", 8, 250),
+    ("Salt", 30, 25),
+    ("Bread 600g", 12, 100),
+    ("Bread 400g", 8, 65)
 ]
 
-cursor.executemany("INSERT INTO products (name, price) VALUES (?, ?)", products)
+# Insert products into the table
+cursor.executemany(
+    "INSERT INTO products (name, quantity, price) VALUES (?, ?, ?)",
+    products
+)
 
 conn.commit()
 conn.close()
 
-print("Sample products inserted successfully!")
+print("Products inserted successfully!")
