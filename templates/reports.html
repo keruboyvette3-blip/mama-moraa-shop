@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+</head>
+<body>
+    <h1>Shop Reports</h1>
+
+    <h2>Products</h2>
+    <ul>
+        {% for product in products %}
+            <li>{{ product[1] }} - {{ product[2] }} Ksh</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Purchases</h2>
+    <ul>
+        {% for purchase in purchases %}
+            <li>Product {{ purchase[1] }} - Quantity {{ purchase[2] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Sales</h2>
+    <ul>
+        {% for sale in sales %}
+            <li>Product {{ sale[1] }} - Quantity {{ sale[2] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Total Revenue</h2>
+    <p><strong>{{ total_revenue }} Ksh</strong></p>
+
+    <h2>Today's Revenue</h2>
+    <p><strong>{{ today_revenue }} Ksh</strong></p>
+</body>
+</html>

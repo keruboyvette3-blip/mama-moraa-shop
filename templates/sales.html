@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales</title>
+</head>
+<body>
+    <h1>Record Sales</h1>
+    <form method="POST" action="/sales">
+        <label>Product ID:</label>
+        <input type="number" name="product_id" required>
+        <label>Quantity:</label>
+        <input type="number" name="quantity" required>
+        <button type="submit">Record Sale</button>
+    </form>
+    <h2>Sales Records</h2>
+    <ul>
+        {% for sale in sales %}
+            <li>Product {{ sale[1] }} - Quantity {{ sale[2] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
